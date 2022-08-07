@@ -1,21 +1,31 @@
 export function calculator(
-  oneNumber: number,
-  twoNumber: number,
+  firstNumber: number,
+  secondNumber: number,
   operator: '+' | '-' | '/' | '*'
 ) {
-  if (operator === '+') {
-    return oneNumber + twoNumber;
-  }
+  switch (operator) {
+    case '+':
+      if (operator === '+') {
+        return firstNumber + secondNumber;
+      }
+      break;
 
-  if (operator === '-') {
-    return oneNumber - twoNumber;
-  }
+    case '-':
+      if (operator === '-') {
+        return firstNumber - secondNumber;
+      }
+      break;
 
-  if (operator === '/') {
-    return oneNumber / twoNumber;
-  }
+    case '/':
+      if (operator === '/') {
+        return firstNumber / secondNumber;
+      }
+      break;
 
-  if (operator === '*') {
-    return oneNumber * twoNumber;
+    case '*':
+      if (operator === '*') {
+        return firstNumber * secondNumber;
+      }
+      break;
   }
 }
