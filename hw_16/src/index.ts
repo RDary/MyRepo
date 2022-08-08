@@ -10,7 +10,7 @@ customCalculator(4, 2, '/', 2);
 customCalculator(4, -2, '/', -2);
 customCalculator(4, 2, '*', 8);
 customCalculator(4, -2, '*', -8);
-customCalculator(4, 0, '*', 4);
+customCalculator(4, 0, '*', 0);
 
 // negative tests
 customCalculator(4, 2, '+', 5);

@@ -4,28 +4,20 @@ export function calculator(
   operator: '+' | '-' | '/' | '*'
 ) {
   switch (operator) {
-    case '+':
-      if (operator === '+') {
-        return firstNumber + secondNumber;
-      }
-      break;
+    case '+': {
+      return firstNumber + secondNumber;
+    }
 
-    case '-':
-      if (operator === '-') {
-        return firstNumber - secondNumber;
-      }
-      break;
+    case '-': {
+      return firstNumber - secondNumber;
+    }
 
-    case '/':
-      if (operator === '/') {
-        return firstNumber / secondNumber;
-      }
-      break;
+    case '/': {
+      return firstNumber / secondNumber;
+    }
 
-    case '*':
-      if (operator === '*') {
-        return firstNumber * secondNumber;
-      }
-      break;
+    case '*': {
+      return firstNumber * secondNumber;
+    }
   }
 }
