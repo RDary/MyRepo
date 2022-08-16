@@ -5,7 +5,7 @@ export class Calculator {
     return firstNumber + secondNumber;
   }
 
-  public subtration(firstNumber: number, secondNumber: number) {
+  public subtraction(firstNumber: number, secondNumber: number) {
     return firstNumber - secondNumber;
   }
 

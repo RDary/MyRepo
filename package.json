@@ -1,8 +1,10 @@
 {
   "scripts": {
     "custom-test": "npx ts-node ./hw_16/src/index.ts",
-    "hw17-test-mocha": "mocha",
-    "hw17-jest-test": "jest --coverage"
+    "hw17-test-mocha": "mocha --config hw_17/mocha-test/.mocharc.json",
+    "hw17-test-mocha-coverage": "npx nyc npm run hw17-test-mocha",
+    "hw17-jest-test": "jest --config hw_17/jest-test/jest.config.js",
+    "hw17-jest-test-coverage": "npx coverage npm run hw17-jest-test"
   },
   "name": "myrepo",
   "description": "There are homeworks",
