@@ -6,7 +6,7 @@ import { Context } from 'mocha';
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
 const baseUrl = 'https://www.onliner.by/';
 const titleOfHomePage = 'Onliner';
-const textForLaptops = 'Автомобильные компрессоры';
+const textForAutoCompr = 'Автомобильные компрессоры';
 const catalogIncludingText = 'Каталог';
 const searchPlaceholderText = 'Поиск в Каталоге.';
 
@@ -27,12 +27,12 @@ describe('Tests of the site Onliner', function () {
       expect(await driver.getTitle()).to.equal(titleOfHomePage);
     });
 
-    it(`When User clicks link ${textForLaptops}, correct page is displayed with the title of article ${textForLaptops}`, async function () {
-      await driver.findElement(By.linkText(textForLaptops)).click();
+    it(`When User clicks link ${textForAutoCompr}, correct page is displayed with the title of article ${textForAutoCompr}`, async function () {
+      await driver.findElement(By.linkText(textForAutoCompr)).click();
       const pageHeader = await driver.findElement(
         By.className('schema-header__title js-schema-header_title')
       );
-      expect(await pageHeader.getText()).to.equal(textForLaptops);
+      expect(await pageHeader.getText()).to.equal(textForAutoCompr);
       await driver.executeScript('window.scrollBy(0, 1000)', pageHeader);
       await driver.executeAsyncScript(
         'window.setTimeout(arguments[arguments.length - 1], 5000)',
