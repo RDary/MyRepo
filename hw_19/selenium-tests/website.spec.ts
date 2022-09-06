@@ -1,12 +1,12 @@
 import { expect } from 'chai';
-import { writeFile } from 'fs';
+import { mkdirSync, rmSync, writeFile } from 'fs';
 import { Builder, Capabilities, By, until, Key } from 'selenium-webdriver';
 import { Context } from 'mocha';
 
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
 const baseUrl = 'https://www.onliner.by/';
 const titleOfHomePage = 'Onliner';
-const textForAutoCompr = 'Автомобильные компрессоры';
+const textForMobPhone = 'Мобильные телефоны';
 const catalogIncludingText = 'Каталог';
 const searchPlaceholderText = 'Поиск в Каталоге.';
 
@@ -15,22 +15,24 @@ let testsCounter = 1;
 const defaultWaitingTime = 5000;
 
 describe('Tests of the site Onliner', async function () {
-  before(async () => {
-    await driver.manage().window().maximize();
-    await driver.get(baseUrl);
+  before(function () {
+    rmSync(screensDir, { recursive: true, force: true });
+    mkdirSync(screensDir, { recursive: true });
   });
 
   it('Should display the title of Home page correctly', async function () {
+    await driver.manage().window().maximize();
+    await driver.get(baseUrl);
     await driver.wait(until.elementLocated(By.css('.onliner_logo')));
     expect(await driver.getTitle()).to.equal(titleOfHomePage);
   });
 
-  it(`When User clicks link ${textForAutoCompr}, correct page is displayed with the title of article ${textForAutoCompr}`, async function () {
-    await driver.findElement(By.linkText(textForAutoCompr)).click();
+  it(`When User clicks link ${textForMobPhone}, correct page is displayed with the title of article ${textForMobPhone}`, async function () {
+    await driver.findElement(By.linkText(textForMobPhone)).click();
     const pageHeader = await driver.findElement(
       By.className('schema-header__title js-schema-header_title')
     );
-    expect(await pageHeader.getText()).to.equal(textForAutoCompr);
+    expect(await pageHeader.getText()).to.equal(textForMobPhone);
     await driver.executeScript('arguments[0].scrollIntoView(true)', pageHeader);
   });
 
@@ -44,7 +46,7 @@ describe('Tests of the site Onliner', async function () {
     expect(await driver.getTitle()).to.include(catalogIncludingText);
   });
 
-  it(`The Home page contains search form with with placeholder including text ${searchPlaceholderText}`, async function () {
+  it(`The Home page contains search form with placeholder including text ${searchPlaceholderText}`, async function () {
     await driver.findElement(By.className('b-top-logo')).click();
     const searchElement = await driver.findElement(
       By.xpath('//form[@class="fast-search__form"]/input[@type="text"]')
