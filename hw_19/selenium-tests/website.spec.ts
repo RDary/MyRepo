@@ -6,7 +6,7 @@ import { Context } from 'mocha';
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
 const baseUrl = 'https://www.onliner.by/';
 const titleOfHomePage = 'Onliner';
-const textForMobPhone = 'Мобильные телефоны';
+const textForForum = 'Форум';
 const catalogIncludingText = 'Каталог';
 const searchPlaceholderText = 'Поиск в Каталоге.';
 
@@ -27,12 +27,10 @@ describe('Tests of the site Onliner', async function () {
     expect(await driver.getTitle()).to.equal(titleOfHomePage);
   });
 
-  it(`When User clicks link ${textForMobPhone}, correct page is displayed with the title of article ${textForMobPhone}`, async function () {
-    await driver.findElement(By.linkText(textForMobPhone)).click();
-    const pageHeader = await driver.findElement(
-      By.className('schema-header__title js-schema-header_title')
-    );
-    expect(await pageHeader.getText()).to.equal(textForMobPhone);
+  it(`When User clicks link ${textForForum}, correct page is displayed with the title of article ${textForForum}`, async function () {
+    await driver.findElement(By.linkText(textForForum)).click();
+    const pageHeader = await driver.findElement(By.className('m-title'));
+    expect(await pageHeader.getText()).to.equal(textForForum);
     await driver.executeScript('arguments[0].scrollIntoView(true)', pageHeader);
   });
 
