@@ -4,7 +4,8 @@
     "hw17-test-mocha": "mocha --config hw_17/mocha-test/.mocharc.json",
     "hw17-jest-test": "jest --config hw_17/jest-test/jest.config.js --coverage",
     "hw18": "jest --config hw_18/jest.config.js",
-    "hw19-test": "mocha --timeout 20000 --config='./hw_19/.mocharc.json'"
+    "hw19-test": "mocha --timeout 20000 --config='./hw_19/.mocharc.json'",
+    "hw21": "mocha --timeout 30000 --config='./hw_21_w3schools/.mocharc.json'"
   },
   "name": "myrepo",
   "description": "There are homeworks",
