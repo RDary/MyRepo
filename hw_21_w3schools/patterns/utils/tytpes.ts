@@ -11,6 +11,7 @@ export enum JAVASCRIPT_ITEMS {
 }
 export enum SELECTOR_TYPES {
   XPATH = 'xpath',
+  ID = 'id',
   CLASSNAME = 'className',
 }
 

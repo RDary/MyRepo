@@ -1,10 +1,6 @@
-import { WebDriver, WebElement, Key } from 'selenium-webdriver';
-import { baseUrl, defaultWaitingTime, logoOfSite } from '../utils/constants';
-import {
-  JAVASCRIPT_ITEMS,
-  NAVIGATION_ITEMS,
-  SELECTOR_TYPES,
-} from '../utils/tytpes';
+import { WebDriver, Key } from 'selenium-webdriver';
+import { baseUrl, defaultWaitingTime } from '../utils/constants';
+import { NAVIGATION_ITEMS, SELECTOR_TYPES } from '../utils/tytpes';
 import { BasePage } from './basePage';
 
 export class HomePage extends BasePage {
@@ -30,57 +26,64 @@ export class HomePage extends BasePage {
     await (await this.getNavigationItemByInnerText(item)).click();
   }
 
-  public async getOnNavigationItemByJavaScriptt(item: JAVASCRIPT_ITEMS) {
+  public async getNavigationItemByJavaScriptt() {
     return await this.driverUtils.findElement(
       SELECTOR_TYPES.XPATH,
       `//a[@href="/js/default.asp"]`
     );
   }
 
-  public async clickOnNavigationItemByJavaScript(item: JAVASCRIPT_ITEMS) {
-    await (await this.getOnNavigationItemByJavaScriptt(item)).click();
+  public async clickOnNavigationItemByJavaScript() {
+    await (await this.getNavigationItemByJavaScriptt()).click();
   }
 
-  public async getTextAfterClickTutorials() {
+  public async getTutorialsHeaderInnerText() {
     return await this.driverUtils.findElement(SELECTOR_TYPES.XPATH, `//h2/b`);
   }
 
-  public async getSearchInput() {
+  public async getGoogleSearchButton() {
     return await this.driverUtils.findElement(
       SELECTOR_TYPES.XPATH,
       '//a[@class="w3-bar-item w3-button bar-icon-hover w3-right w3searchbtntopnav"]'
     );
   }
 
-  public async searchForInput() {
+  public async clickOnGoogleSearchButton() {
     await this.driver
       .actions()
-      .click(await this.getSearchInput())
+      .click(await this.getGoogleSearchButton())
       .perform();
   }
 
-  public async getLogoText() {
+  public async getGoogleSearchInput() {
     return await this.driverUtils.findElement(
-      SELECTOR_TYPES.XPATH,
-      `//a[@href="${logoOfSite}"]`
+      SELECTOR_TYPES.ID,
+      'googleSearch'
     );
   }
 
-  public async clickLogoText() {
-    await (await this.getLogoText()).click();
+  public async getLogoElement() {
+    return await this.driverUtils.findElement(
+      SELECTOR_TYPES.XPATH,
+      `//a[@href="https://www.w3schools.com"]`
+    );
   }
 
-  public async getSearchInputWithPlaceholder() {
+  public async clickLogoElement() {
+    await (await this.getLogoElement()).click();
+  }
+
+  public async getSearchInput() {
     return await this.driverUtils.findElement(
       SELECTOR_TYPES.CLASSNAME,
       'example'
     );
   }
 
-  public async searchForInputWithPlaceholder(text: string) {
+  public async searchForInput(text: string) {
     await this.driver
       .actions()
-      .click(await this.getSearchInputWithPlaceholder())
+      .click(await this.getSearchInput())
       .sendKeys(text)
       .pause(defaultWaitingTime)
       .sendKeys(Key.RETURN)

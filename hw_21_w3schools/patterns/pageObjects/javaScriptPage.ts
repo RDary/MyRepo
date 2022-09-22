@@ -11,7 +11,7 @@ export class JavaScriptPage extends HomePage {
     this.url = `${baseUrl}/js/default.asp`;
   }
 
-  public async getTextOnJavascriptPage() {
+  public async getPageHeaderOnJavascriptPage() {
     return await this.driverUtils.findElement(
       SELECTOR_TYPES.XPATH,
       `//div[@class="w3-main w3-light-grey"]//*[text()="JavaScript "]`

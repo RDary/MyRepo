@@ -1,6 +1,7 @@
 import { mkdirSync, rmSync, writeFile } from 'fs';
 import { Builder, Capabilities, WebDriver } from 'selenium-webdriver';
 import { Context } from 'mocha';
+import { expect } from 'chai';
 import { JAVASCRIPT_ITEMS, NAVIGATION_ITEMS, PAGES } from '../utils/tytpes';
 import { PageFactory } from '../pageObjects/pageFactory';
 import { JavaScriptPage } from '../pageObjects/javaScriptPage';
@@ -12,7 +13,6 @@ const driver: WebDriver = new Builder()
 const screensDir = 'hw_21_w3schools/patterns/screenshots';
 let testsCounter = 1;
 const titleOfHomePage = 'W3Schools Online Web Tutorials';
-const searchPlaceholderText = 'Search our tutorials, e.g. HTML';
 
 const homePage = PageFactory.getPage(driver, PAGES.HOME);
 const javaScriptPage = PageFactory.getPage(
@@ -29,39 +29,38 @@ describe('Tests of the site w3schools', function () {
   it('Should display the title of Home page correctly', async function () {
     await homePage.visitPage();
     await homePage.maximizeWindow();
-    await homePage.waitForTitleIs(titleOfHomePage);
+    expect(await homePage.waitForTitleIs(titleOfHomePage));
   });
 
   it('When User clicks on Tutorials button the Tutorials Items should open', async function () {
     await homePage.getNavigationItemByInnerText(NAVIGATION_ITEMS.TUTORIALS);
     await homePage.clickOnNavigationItemByInnerText(NAVIGATION_ITEMS.TUTORIALS);
-    const searchText = await homePage.getTextAfterClickTutorials();
-    await homePage.highlightElement(searchText);
+    const searchText = await homePage.getTutorialsHeaderInnerText();
+    expect(await homePage.highlightElement(searchText));
   });
 
   it(`When User clicks link ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}, correct page is displayed with the title ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}`, async function () {
-    await homePage.clickOnNavigationItemByJavaScript(
-      JAVASCRIPT_ITEMS.LEARNJAVASCRIPT
-    );
+    await homePage.clickOnNavigationItemByJavaScript();
     const searchTextOnJavascriptPage =
-      await javaScriptPage.getTextOnJavascriptPage();
-    await javaScriptPage.highlightElement(searchTextOnJavascriptPage);
+      await javaScriptPage.getPageHeaderOnJavascriptPage();
+    expect(await javaScriptPage.highlightElement(searchTextOnJavascriptPage));
   });
 
   it('When User clicks on the logo, the home page is displayed', async function () {
-    await javaScriptPage.clickLogoText();
-    await homePage.waitUrlToContain(baseUrl);
+    await javaScriptPage.clickLogoElement();
+    expect(await homePage.waitUrlToContain(baseUrl));
   });
 
-  it('The home page contains search form', async function () {
+  it('The home page contains Google search button', async function () {
+    await homePage.getGoogleSearchButton();
+    await homePage.clickOnGoogleSearchButton();
+    expect(await homePage.getGoogleSearchInput());
+  });
+
+  it(`The home page contains search form with the text 'Search our tutorials, e.g. HTML'`, async function () {
     await homePage.getSearchInput();
-    await homePage.searchForInput();
-  });
-
-  it(`The home page contains search form with placeholder including text '${searchPlaceholderText}'`, async function () {
-    await homePage.getSearchInputWithPlaceholder();
     let QUERY_STRING = 'CSS Tutorial';
-    await homePage.searchForInputWithPlaceholder(QUERY_STRING);
+    expect(await homePage.searchForInput(QUERY_STRING));
   });
 
   afterEach(async function () {
