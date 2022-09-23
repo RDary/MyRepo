@@ -32,12 +32,11 @@ describe('Tests of the site w3schools', function () {
     await homePage.waitForTitleIs(titleOfHomePage);
   });
 
-  it('When User clicks on Tutorials button the Tutorials Items should open', async function () {
-    await homePage.getNavigationItemByInnerText(NAVIGATION_ITEMS.TUTORIALS);
+  it('When User clicks on Tutorials button the Tutorials Items be opened', async function () {
     await homePage.clickOnNavigationItemByInnerText(NAVIGATION_ITEMS.TUTORIALS);
     const searchText = await homePage.getTutorialsHeaderInnerText();
     await homePage.highlightElement(searchText);
-    expect(await searchText.getText()).to.be.equal('Tutorials');
+    expect(await searchText.getText()).to.be.equal(NAVIGATION_ITEMS.TUTORIALS);
   });
 
   it(`When User clicks link ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}, correct page is displayed with the title ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}`, async function () {
@@ -63,7 +62,7 @@ describe('Tests of the site w3schools', function () {
 
   it(`Should fill the search form with the text 'Search our tutorials, e.g. HTML' and then load search page`, async function () {
     await homePage.getSearchInput();
-    let QUERY_STRING = 'CSS Tutorial';
+    const QUERY_STRING = 'CSS Tutorial';
     await homePage.searchForInput(QUERY_STRING);
     await homePage.waitUrlToContain(CSSTutorialUrl);
   });

@@ -56,10 +56,7 @@ export class HomePage extends BasePage {
   }
 
   public async waitForGoogleSearchInput() {
-    return await this.driverUtils.findElement(
-      SELECTOR_TYPES.ID,
-      'googleSearch'
-    );
+    await this.driverUtils.findElement(SELECTOR_TYPES.ID, 'googleSearch');
   }
 
   public async getLogoElement() {
