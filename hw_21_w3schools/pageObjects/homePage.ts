@@ -26,18 +26,18 @@ export class HomePage extends BasePage {
     await (await this.getNavigationItemByInnerText(item)).click();
   }
 
-  public async getNavigationItemByJavaScriptt() {
+  public async getLearnJavaScriptLink() {
     return await this.driverUtils.findElement(
       SELECTOR_TYPES.XPATH,
       `//a[@href="/js/default.asp"]`
     );
   }
 
-  public async clickOnNavigationItemByJavaScript() {
-    await (await this.getNavigationItemByJavaScriptt()).click();
+  public async clickOnLearnJavaScriptLink() {
+    await (await this.getLearnJavaScriptLink()).click();
   }
 
-  public async getTutorialsHeaderInnerText() {
+  public async getTutorialsHeaderElement() {
     return await this.driverUtils.findElement(SELECTOR_TYPES.XPATH, `//h2/b`);
   }
 

@@ -10,7 +10,7 @@ import { baseUrl, CSSTutorialUrl } from '../utils/constants';
 const driver: WebDriver = new Builder()
   .withCapabilities(Capabilities.chrome())
   .build();
-const screensDir = 'hw_21_w3schools/patterns/screenshots';
+const screensDir = 'hw_21_w3schools/screenshots';
 let testsCounter = 1;
 const titleOfHomePage = 'W3Schools Online Web Tutorials';
 
@@ -34,13 +34,13 @@ describe('Tests of the site w3schools', function () {
 
   it('When User clicks on Tutorials button the Tutorials Items be opened', async function () {
     await homePage.clickOnNavigationItemByInnerText(NAVIGATION_ITEMS.TUTORIALS);
-    const searchText = await homePage.getTutorialsHeaderInnerText();
+    const searchText = await homePage.getTutorialsHeaderElement();
     await homePage.highlightElement(searchText);
     expect(await searchText.getText()).to.be.equal(NAVIGATION_ITEMS.TUTORIALS);
   });
 
   it(`When User clicks link ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}, correct page is displayed with the title ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}`, async function () {
-    await homePage.clickOnNavigationItemByJavaScript();
+    await homePage.clickOnLearnJavaScriptLink();
     const textOnJavascriptPage =
       await javaScriptPage.getPageHeaderOnJavascriptPage();
     await javaScriptPage.highlightElement(textOnJavascriptPage);
