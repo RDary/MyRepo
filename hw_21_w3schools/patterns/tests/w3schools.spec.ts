@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import { JAVASCRIPT_ITEMS, NAVIGATION_ITEMS, PAGES } from '../utils/tytpes';
 import { PageFactory } from '../pageObjects/pageFactory';
 import { JavaScriptPage } from '../pageObjects/javaScriptPage';
-import { baseUrl } from '../utils/constants';
+import { baseUrl, CSSTutorialUrl } from '../utils/constants';
 
 const driver: WebDriver = new Builder()
   .withCapabilities(Capabilities.chrome())
@@ -29,38 +29,43 @@ describe('Tests of the site w3schools', function () {
   it('Should display the title of Home page correctly', async function () {
     await homePage.visitPage();
     await homePage.maximizeWindow();
-    expect(await homePage.waitForTitleIs(titleOfHomePage));
+    await homePage.waitForTitleIs(titleOfHomePage);
   });
 
   it('When User clicks on Tutorials button the Tutorials Items should open', async function () {
     await homePage.getNavigationItemByInnerText(NAVIGATION_ITEMS.TUTORIALS);
     await homePage.clickOnNavigationItemByInnerText(NAVIGATION_ITEMS.TUTORIALS);
     const searchText = await homePage.getTutorialsHeaderInnerText();
-    expect(await homePage.highlightElement(searchText));
+    await homePage.highlightElement(searchText);
+    expect(await searchText.getText()).to.be.equal('Tutorials');
   });
 
   it(`When User clicks link ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}, correct page is displayed with the title ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}`, async function () {
     await homePage.clickOnNavigationItemByJavaScript();
-    const searchTextOnJavascriptPage =
+    const textOnJavascriptPage =
       await javaScriptPage.getPageHeaderOnJavascriptPage();
-    expect(await javaScriptPage.highlightElement(searchTextOnJavascriptPage));
+    await javaScriptPage.highlightElement(textOnJavascriptPage);
+    expect(await textOnJavascriptPage.getText()).to.be.include(
+      'JavaScript Tutorial'
+    );
   });
 
   it('When User clicks on the logo, the home page is displayed', async function () {
     await javaScriptPage.clickLogoElement();
-    expect(await homePage.waitUrlToContain(baseUrl));
+    await homePage.waitUrlToContain(baseUrl);
   });
 
   it('The home page contains Google search button', async function () {
     await homePage.getGoogleSearchButton();
     await homePage.clickOnGoogleSearchButton();
-    expect(await homePage.getGoogleSearchInput());
+    await homePage.waitForGoogleSearchInput();
   });
 
-  it(`The home page contains search form with the text 'Search our tutorials, e.g. HTML'`, async function () {
+  it(`Should fill the search form with the text 'Search our tutorials, e.g. HTML' and then load search page`, async function () {
     await homePage.getSearchInput();
     let QUERY_STRING = 'CSS Tutorial';
-    expect(await homePage.searchForInput(QUERY_STRING));
+    await homePage.searchForInput(QUERY_STRING);
+    await homePage.waitUrlToContain(CSSTutorialUrl);
   });
 
   afterEach(async function () {

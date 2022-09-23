@@ -55,7 +55,7 @@ export class HomePage extends BasePage {
       .perform();
   }
 
-  public async getGoogleSearchInput() {
+  public async waitForGoogleSearchInput() {
     return await this.driverUtils.findElement(
       SELECTOR_TYPES.ID,
       'googleSearch'
