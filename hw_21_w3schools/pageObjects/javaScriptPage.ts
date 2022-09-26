@@ -1,6 +1,6 @@
 import { WebDriver } from 'selenium-webdriver';
 import { baseUrl } from '../utils/constants';
-import { SELECTOR_TYPES } from '../utils/tytpes';
+import { SELECTOR_TYPES } from '../utils/types';
 import { HomePage } from './homePage';
 
 export class JavaScriptPage extends HomePage {
@@ -11,7 +11,7 @@ export class JavaScriptPage extends HomePage {
     this.url = `${baseUrl}/js/default.asp`;
   }
 
-  public async getPageHeaderOnJavascriptPage() {
+  public async getPageHeader() {
     return await this.driverUtils.findElement(
       SELECTOR_TYPES.XPATH,
       `//div[@class="w3-main w3-light-grey"]//*[text()="JavaScript "]`

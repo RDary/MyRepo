@@ -1,6 +1,6 @@
 import { By, Locator, until, WebDriver } from 'selenium-webdriver';
 import { defaultWaitingTime } from './constants';
-import { SELECTOR_TYPES } from './tytpes';
+import { SELECTOR_TYPES } from './types';
 
 export class DriverUtils {
   constructor(public driver: WebDriver) {}

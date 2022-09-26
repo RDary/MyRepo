@@ -1,6 +1,6 @@
-import { WebDriver, Key } from 'selenium-webdriver';
+import { until, WebDriver, Key, By, WebElement } from 'selenium-webdriver';
 import { baseUrl, defaultWaitingTime } from '../utils/constants';
-import { NAVIGATION_ITEMS, SELECTOR_TYPES } from '../utils/tytpes';
+import { NAVIGATION_ITEMS, SELECTOR_TYPES } from '../utils/types';
 import { BasePage } from './basePage';
 
 export class HomePage extends BasePage {
@@ -56,7 +56,7 @@ export class HomePage extends BasePage {
   }
 
   public async waitForGoogleSearchInput() {
-    await this.driverUtils.findElement(SELECTOR_TYPES.ID, 'googleSearch');
+    await this.driver.wait(until.elementsLocated(By.id('googleSearch')), 3000);
   }
 
   public async getLogoElement() {
@@ -77,7 +77,7 @@ export class HomePage extends BasePage {
     );
   }
 
-  public async searchForInput(text: string) {
+  public async searchFor(text: string) {
     await this.driver
       .actions()
       .click(await this.getSearchInput())

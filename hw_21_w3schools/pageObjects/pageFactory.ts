@@ -1,5 +1,5 @@
 import { WebDriver } from 'selenium-webdriver';
-import { PAGES } from '../utils/tytpes';
+import { PAGES } from '../utils/types';
 import { HomePage } from './homePage';
 import { JavaScriptPage } from './javaScriptPage';
 

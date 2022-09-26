@@ -2,7 +2,7 @@ import { mkdirSync, rmSync, writeFile } from 'fs';
 import { Builder, Capabilities, WebDriver } from 'selenium-webdriver';
 import { Context } from 'mocha';
 import { expect } from 'chai';
-import { JAVASCRIPT_ITEMS, NAVIGATION_ITEMS, PAGES } from '../utils/tytpes';
+import { JAVASCRIPT_ITEMS, NAVIGATION_ITEMS, PAGES } from '../utils/types';
 import { PageFactory } from '../pageObjects/pageFactory';
 import { JavaScriptPage } from '../pageObjects/javaScriptPage';
 import { baseUrl, CSSTutorialUrl } from '../utils/constants';
@@ -41,8 +41,7 @@ describe('Tests of the site w3schools', function () {
 
   it(`When User clicks link ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}, correct page is displayed with the title ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}`, async function () {
     await homePage.clickOnLearnJavaScriptLink();
-    const textOnJavascriptPage =
-      await javaScriptPage.getPageHeaderOnJavascriptPage();
+    const textOnJavascriptPage = await javaScriptPage.getPageHeader();
     await javaScriptPage.highlightElement(textOnJavascriptPage);
     expect(await textOnJavascriptPage.getText()).to.be.include(
       'JavaScript Tutorial'
@@ -63,7 +62,7 @@ describe('Tests of the site w3schools', function () {
   it(`Should fill the search form with the text 'Search our tutorials, e.g. HTML' and then load search page`, async function () {
     await homePage.getSearchInput();
     const QUERY_STRING = 'CSS Tutorial';
-    await homePage.searchForInput(QUERY_STRING);
+    await homePage.searchFor(QUERY_STRING);
     await homePage.waitUrlToContain(CSSTutorialUrl);
   });
 
