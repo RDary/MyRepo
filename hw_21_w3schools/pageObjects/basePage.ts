@@ -1,4 +1,4 @@
-import { until, WebDriver, WebElement } from 'selenium-webdriver';
+import { By, until, WebDriver, WebElement } from 'selenium-webdriver';
 import { DriverUtils } from '../utils/driverUtils';
 
 export class BasePage {

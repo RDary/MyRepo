@@ -32,7 +32,7 @@ describe('Tests of the site w3schools', function () {
     await homePage.waitForTitleIs(titleOfHomePage);
   });
 
-  it('When User clicks on Tutorials button the Tutorials Items be opened', async function () {
+  it('When User clicks on Tutorials button the Tutorials Items should be opened', async function () {
     await homePage.clickOnNavigationItemByInnerText(NAVIGATION_ITEMS.TUTORIALS);
     const searchText = await homePage.getTutorialsHeaderElement();
     await homePage.highlightElement(searchText);
@@ -54,15 +54,12 @@ describe('Tests of the site w3schools', function () {
   });
 
   it('The home page contains Google search button', async function () {
-    await homePage.getGoogleSearchButton();
     await homePage.clickOnGoogleSearchButton();
     await homePage.waitForGoogleSearchInput();
   });
 
   it(`Should fill the search form with the text 'Search our tutorials, e.g. HTML' and then load search page`, async function () {
-    await homePage.getSearchInput();
-    const QUERY_STRING = 'CSS Tutorial';
-    await homePage.searchFor(QUERY_STRING);
+    await homePage.searchFor('CSS Tutorial');
     await homePage.waitUrlToContain(CSSTutorialUrl);
   });
 
