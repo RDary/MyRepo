@@ -1,0 +1,6 @@
+{
+  "extension": ["ts"],
+  "spec": ["**/hw_21_w3schools/tests/**/*.spec.ts"],
+  "require": ["ts-node/register"],
+  "timeout": 30000
+}
