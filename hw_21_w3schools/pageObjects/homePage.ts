@@ -1,4 +1,4 @@
-import { until, WebDriver, Key, By, WebElement } from 'selenium-webdriver';
+import { until, WebDriver, Key, By } from 'selenium-webdriver';
 import { baseUrl, defaultWaitingTime } from '../utils/constants';
 import { NAVIGATION_ITEMS, SELECTOR_TYPES } from '../utils/types';
 import { BasePage } from './basePage';
