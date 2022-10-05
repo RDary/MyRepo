@@ -8,10 +8,6 @@ const baseUrl = 'https://www.w3schools.com/';
 const titleOfHomePage = 'W3Schools Online Web Tutorials';
 const textForTutorials = 'Tutorials';
 
-const textForForum = 'Форум';
-const catalogIncludingText = 'Каталог';
-const searchPlaceholderText = 'Поиск в Каталоге.';
-
 const screensDir = 'hw_22/selenium/screenshots';
 let testsCounter = 1;
 const defaultWaitingTime = 5000;
