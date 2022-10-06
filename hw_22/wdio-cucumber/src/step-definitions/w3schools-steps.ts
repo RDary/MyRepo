@@ -14,17 +14,17 @@ Then(/^the user sees that the title of the Home page is correct$/, async () => {
 Then(
   /^the User sees that the button (.+) contains (.+)$/,
   async (index, text) => {
-    const buttonName = await homePage.getButtonsInMainMenuByInnerText();
-    expect(buttonName[index - 1]).toHaveText(text);
+    const button = await homePage.getButtonsInMainMenu();
+    expect(button[index - 1]).toHaveText(text);
   }
 );
 
-When(/^the User clicks on the Tutorials button$/, async () => {
+When(/^the User clicks on the (.+) button$/, async (tutorialsButton) => {
   await homePage.clickOnButtonInMainMenuByInnerText(NAVIGATION_ITEMS.TUTORIALS);
 });
 
 Then(
-  /^the user sees the text '(.+)'$/,
+  /^the user sees the element '(.+)' on the Tutorials tab$/,
   async (tutorialsHeaderElement: string) => {
     const searchText = await homePage.getTutorialsHeaderElement();
     expect(searchText).toHaveText(tutorialsHeaderElement);
@@ -38,8 +38,8 @@ When(/^the User clicks the link 'Learn JavaScript'$/, async () => {
 Then(
   /^the User sees that the page is displayed with the title '(.+)'$/,
   async (javaScriptHeaderElement: string) => {
-    const searchHeaderText = await javaScriptPage.getPageHeader();
-    expect(searchHeaderText).toHaveText(javaScriptHeaderElement);
+    const searchHeaderElement = await javaScriptPage.getPageHeader();
+    expect(searchHeaderElement).toHaveText(javaScriptHeaderElement);
   }
 );
 
@@ -56,5 +56,6 @@ When(/^the User clicks the Google search button$/, async () => {
 });
 
 Then(/^the User sees that input field is open/, async () => {
-  await homePage.waitForGoogleSearchInput();
+  const fieldInput = await homePage.getForGoogleSearchInput();
+  expect(fieldInput).toBeDisplayed();
 });

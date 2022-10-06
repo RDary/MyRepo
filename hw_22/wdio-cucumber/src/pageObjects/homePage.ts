@@ -7,7 +7,7 @@ export class HomePage extends BasePage {
     super();
   }
 
-  public getButtonsInMainMenuByInnerText = () =>
+  public getButtonsInMainMenu = () =>
     $$(
       `w3-bar-item w3-button w3-hide-small barex bar-item-hover w3-padding-24`
     );
@@ -46,7 +46,7 @@ export class HomePage extends BasePage {
     ).click();
   };
 
-  public waitForGoogleSearchInput = async () => {
+  public getForGoogleSearchInput = async () => {
     return await $(`//input[@type='text']`);
   };
 }

@@ -2,7 +2,7 @@
 Feature: Get w3schools tests
 
    @visit
-   Scenario: The user visit the Home page
+   Scenario: The user visits the Home page
    Given the User opens web page https://www.w3schools.com
    Then the user sees that the title of the Home page is correct
 
@@ -18,8 +18,8 @@ Feature: Get w3schools tests
    
    @clicks
    Scenario: The Main Menu
-   When the User clicks on the Tutorials button
-   Then the user sees the text 'Tutorials'
+   When the User clicks on the 'Tutorials' button
+   Then the user sees the element 'Tutorials' on the Tutorials tab
 
    Scenario: The Tutorials tab
    When the User clicks the link 'Learn JavaScript'
