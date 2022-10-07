@@ -50,7 +50,7 @@ export const config: Options.Testrunner = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ['hw_22/wdio-cucumber/features/**/*.feature'],
+  specs: ['hw_22/features/**/*.feature'],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -164,16 +164,13 @@ export const config: Options.Testrunner = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: [
-    'spec',
-    ['allure', { outputDir: 'hw_22/wdio-cucumber/allure-results' }],
-  ],
+  reporters: ['spec', ['allure', { outputDir: 'hw_22/allure-results' }]],
 
   //
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
-    require: ['hw_22/wdio-cucumber/src/step-definitions/**/*.ts'],
+    require: ['hw_22/src/step-definitions/**/*.ts'],
     // <boolean> show full backtrace for errors
     backtrace: false,
     // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -205,11 +202,11 @@ export const config: Options.Testrunner = {
   // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
   // resolved to continue.
   onPrepare: function () {
-    rmSync('hw_22/wdio-cucumber/allure-report', {
+    rmSync('hw_22/allure-report', {
       recursive: true,
       force: true,
     });
-    rmSync('hw_22/wdio-cucumber/allure-results', {
+    rmSync('hw_22/allure-results', {
       recursive: true,
       force: true,
     });

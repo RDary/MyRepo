@@ -19,7 +19,7 @@ Then(
   }
 );
 
-When(/^the User clicks on the (.+) button$/, async (tutorialsButton) => {
+When(/^the User clicks on the (.+) button$/, async (tutorials) => {
   await homePage.clickOnButtonInMainMenuByInnerText(NAVIGATION_ITEMS.TUTORIALS);
 });
 
@@ -56,6 +56,6 @@ When(/^the User clicks the Google search button$/, async () => {
 });
 
 Then(/^the User sees that input field is open/, async () => {
-  const fieldInput = await homePage.getForGoogleSearchInput();
+  const fieldInput = await homePage.getGoogleSearchInput();
   expect(fieldInput).toBeDisplayed();
 });

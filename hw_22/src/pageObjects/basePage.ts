@@ -1,9 +1,9 @@
 export class BasePage {
-  get PageTitle() {
+  get pageTitle() {
     return browser.getTitle();
   }
 
-  get CurrentUrl() {
+  get currentUrl() {
     return browser.getUrl();
   }
 }

@@ -6,8 +6,8 @@
     "hw18": "jest --config hw_18/jest.config.js",
     "hw19-test": "mocha --timeout 20000 --config='./hw_19/.mocharc.json'",
     "hw21": "mocha --timeout 30000 --config='./hw_21_w3schools/.mocharc.json'",
-    "hw22-wdio-cucumber": "wdio hw_22/wdio-cucumber/config/wdio.conf.ts",
-    "hw22-wdio-cucumber-reporter": "allure generate hw_22/wdio-cucumber/allure-results --clean -o hw_22/wdio-cucumber/allure-report && allure open hw_22/wdio-cucumber/allure-report"
+    "hw22-wdio-cucumber": "wdio hw_22/config/wdio.conf.ts",
+    "hw22-wdio-cucumber-reporter": "allure generate hw_22/allure-results --clean -o hw_22/allure-report && allure open hw_22/allure-report"
   },
   "name": "myrepo",
   "description": "There are homeworks",

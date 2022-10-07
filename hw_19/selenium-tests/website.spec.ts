@@ -32,17 +32,17 @@ describe('Tests of the site w3schools', async function () {
         )
       )
       .click();
-    const searchText = await driver.findElement(By.xpath('//h2/b'));
+    const searchElement = await driver.findElement(By.xpath('//h2/b'));
     await driver.executeScript(
       "arguments[0].setAttribute('style', 'background: #fc0fc0;')",
-      searchText
+      searchElement
     );
-    expect(await searchText.getText()).to.be.equal(`${textForTutorials}`);
+    expect(await searchElement.getText()).to.be.equal(`${textForTutorials}`);
   });
 
   it(`When User clicks the link 'Learn JavaScript', correct page is displayed with the title 'JavaScript Tutorials'`, async function () {
     await driver.findElement(By.xpath('//a[@href="/js/default.asp"]')).click();
-    const textOnJavascriptPage = await driver.wait(
+    const elementOnJavascriptPage = await driver.wait(
       until.elementLocated(
         By.xpath(
           `//div[@class="w3-main w3-light-grey"]//*[text()="JavaScript "]`
@@ -51,9 +51,9 @@ describe('Tests of the site w3schools', async function () {
     );
     await driver.executeScript(
       "arguments[0].setAttribute('style', 'background: #fc0fc0;')",
-      textOnJavascriptPage
+      elementOnJavascriptPage
     );
-    expect(await textOnJavascriptPage.getText()).to.be.include(
+    expect(await elementOnJavascriptPage.getText()).to.be.include(
       'JavaScript Tutorial'
     );
   });

@@ -46,7 +46,7 @@ export class HomePage extends BasePage {
     ).click();
   };
 
-  public getForGoogleSearchInput = async () => {
+  public getGoogleSearchInput = async () => {
     return await $(`//input[@type='text']`);
   };
 }
