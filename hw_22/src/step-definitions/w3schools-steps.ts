@@ -20,7 +20,7 @@ Then(
 );
 
 When(/^the User clicks on the 'Tutorials' button$/, async () => {
-  await homePage.clickOnButtonInMainMenu(NAVIGATION_ITEMS.TUTORIALS);
+  await homePage.clickOnButtonInMainMenuByInnerText(NAVIGATION_ITEMS.TUTORIALS);
 });
 
 Then(
@@ -48,7 +48,7 @@ When(/^the User clicks on the logo$/, async () => {
 });
 
 Then(/^the User sees that the Home page is displayed$/, async () => {
-  await homePage.waitFor();
+  await homePage.waitForPage();
 });
 
 When(/^the User clicks the Google search button$/, async () => {

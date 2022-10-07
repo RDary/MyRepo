@@ -12,7 +12,9 @@ export class HomePage extends BasePage {
       `w3-bar-item w3-button w3-hide-small barex bar-item-hover w3-padding-24`
     );
 
-  public clickOnButtonInMainMenu = async (item: NAVIGATION_ITEMS) => {
+  public clickOnButtonInMainMenuByInnerText = async (
+    item: NAVIGATION_ITEMS
+  ) => {
     await (
       await $(
         `//div[@class="w3-bar w3-card-2 notranslate"]//*[text()="${item} "]`
@@ -30,7 +32,7 @@ export class HomePage extends BasePage {
     await (await $('//a[@href="https://www.w3schools.com"]')).click();
   };
 
-  public waitFor = async () => {
+  public waitForPage = async () => {
     await browser.waitUntil(async () => {
       return (await browser.getUrl()) === `${baseUrl}`;
     });
