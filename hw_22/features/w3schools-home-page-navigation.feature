@@ -16,15 +16,17 @@ Feature: Get w3schools tests
        | References | 2     |
        | Exercises  | 3     |
    
-   @clicks
+   @button
    Scenario: The Main Menu
    When the User clicks on the 'Tutorials' button
    Then the user sees the element 'Tutorials' on the Tutorials tab
 
+   @link
    Scenario: The Tutorials tab
    When the User clicks the link 'Learn JavaScript'
    Then the User sees that the page is displayed with the title 'JavaScript Tutorial'
 
+   @logo
    Scenario: The Logo test
    When the User clicks on the logo 
    Then the User sees that the Home page is displayed
