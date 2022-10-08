@@ -5,7 +5,9 @@
     "hw17-jest-test": "jest --config hw_17/jest-test/jest.config.js --coverage",
     "hw18": "jest --config hw_18/jest.config.js",
     "hw19-test": "mocha --timeout 20000 --config='./hw_19/.mocharc.json'",
-    "hw21": "mocha --timeout 30000 --config='./hw_21_w3schools/.mocharc.json'"
+    "hw21": "mocha --timeout 30000 --config='./hw_21_w3schools/.mocharc.json'",
+    "hw22-wdio-cucumber": "wdio hw_22/config/wdio.conf.ts",
+    "hw22-wdio-cucumber-reporter": "allure generate hw_22/allure-results --clean -o hw_22/allure-report && allure open hw_22/allure-report"
   },
   "name": "myrepo",
   "description": "There are homeworks",
@@ -30,6 +32,12 @@
     "@types/superagent": "^4.1.15",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
+    "@wdio/allure-reporter": "^7.25.0",
+    "@wdio/cli": "^7.25.0",
+    "@wdio/cucumber-framework": "^7.25.0",
+    "@wdio/local-runner": "^7.25.0",
+    "@wdio/spec-reporter": "^7.25.0",
+    "allure-commandline": "^2.18.1",
     "chai": "^4.3.6",
     "chromedriver": "^104.0.0",
     "eslint": "^8.21.0",
@@ -39,7 +47,8 @@
     "superagent": "^8.0.0",
     "ts-jest": "^28.0.7",
     "ts-node": "^10.9.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "wdio-chromedriver-service": "^8.0.0"
   },
   "keywords": [
     "unit",
