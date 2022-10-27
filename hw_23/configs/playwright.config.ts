@@ -39,6 +39,10 @@ const config: PlaywrightTestConfig = {
         outputFile: 'html-report',
       },
     ],
+    [
+      'allure-playwright',
+      { detail: true, outputFolder: './hw_23/assets/allure-results' },
+    ],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
