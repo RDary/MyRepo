@@ -7,7 +7,9 @@
     "hw19-test": "mocha --timeout 20000 --config='./hw_19/.mocharc.json'",
     "hw21": "mocha --timeout 30000 --config='./hw_21_w3schools/.mocharc.json'",
     "hw22-wdio-cucumber": "wdio hw_22/config/wdio.conf.ts",
-    "hw22-wdio-cucumber-reporter": "allure generate hw_22/allure-results --clean -o hw_22/allure-report && allure open hw_22/allure-report"
+    "hw22-wdio-cucumber-reporter": "allure generate hw_22/allure-results --clean -o hw_22/allure-report && allure open hw_22/allure-report",
+    "hw_23-playwright": "playwright test --config=./hw_23/configs/playwright.config.ts",
+    "hw_23-playwright-report": "playwright show-report hw_23/assets/reports"
   },
   "name": "myrepo",
   "description": "There are homeworks",
@@ -24,6 +26,7 @@
   },
   "homepage": "https://github.com/RDary/MyRepo#readme",
   "devDependencies": {
+    "@playwright/test": "^1.27.1",
     "@types/chai": "^4.3.3",
     "@types/jest": "^28.1.6",
     "@types/mocha": "^9.1.1",
