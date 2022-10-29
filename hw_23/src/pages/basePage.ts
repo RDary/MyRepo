@@ -7,8 +7,8 @@ export class BasePage {
     await expect(this.page).toHaveTitle(title);
   }
 
-  public async waitUrlToContain(text: string) {
-    await expect(this.page).toHaveURL(text);
+  public async waitUrlToContain(url: string) {
+    await expect(this.page).toHaveURL(url);
   }
 
   public async visitPage(text: string) {

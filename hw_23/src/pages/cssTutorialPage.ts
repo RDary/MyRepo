@@ -12,13 +12,4 @@ export class CSSTutorialPage extends HomePage {
   public async clickLogoElement() {
     await this.page.locator(`//a[@href="https://www.w3schools.com"]`).click();
   }
-  // public async visitPage() {
-  //   await this.page.goto(this.url);
-  // }
-
-  // public async getPageHeader() {
-  //   return this.page.locator(
-  //     `//div[@class="w3-main w3-light-grey"]//*[text()="JavaScript "]`
-  //   );
-  // }
 }
