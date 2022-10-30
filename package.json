@@ -8,9 +8,9 @@
     "hw21": "mocha --timeout 30000 --config='./hw_21_w3schools/.mocharc.json'",
     "hw22-wdio-cucumber": "wdio hw_22/config/wdio.conf.ts",
     "hw22-wdio-cucumber-reporter": "allure generate hw_22/allure-results --clean -o hw_22/allure-report && allure open hw_22/allure-report",
-    "hw_23-playwright": "playwright test --config=./hw_23/configs/playwright.config.ts",
-    "hw_23-playwright-report": "playwright show-report hw_23/assets/reports",
-    "hw_23-playwright-allure-report": "allure generate hw_23/assets/allure-results --clean -o hw_23/assets/allure-report && allure open hw_23/assets/allure-report"
+    "hw23-playwright": "playwright test --config=./hw_23/configs/playwright.config.ts",
+    "hw23-playwright-report": "playwright show-report hw_23/assets/reports",
+    "hw23-playwright-allure-report": "allure generate hw_23/assets/allure-results --clean -o hw_23/assets/allure-report && allure open hw_23/assets/allure-report"
   },
   "name": "myrepo",
   "description": "There are homeworks",
