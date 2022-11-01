@@ -10,7 +10,8 @@
     "hw22-wdio-cucumber-reporter": "allure generate hw_22/allure-results --clean -o hw_22/allure-report && allure open hw_22/allure-report",
     "hw23-playwright": "playwright test --config=./hw_23/configs/playwright.config.ts",
     "hw23-playwright-report": "playwright show-report hw_23/assets/reports",
-    "hw23-playwright-allure-report": "allure generate hw_23/assets/allure-results --clean -o hw_23/assets/allure-report && allure open hw_23/assets/allure-report"
+    "hw23-playwright-allure-report": "allure generate hw_23/assets/allure-results --clean -o hw_23/assets/allure-report && allure open hw_23/assets/allure-report",
+    "hw24-cy:open": "cypress open"
   },
   "name": "myrepo",
   "description": "There are homeworks",
@@ -45,6 +46,7 @@
     "allure-playwright": "^2.0.0-beta.19",
     "chai": "^4.3.6",
     "chromedriver": "^104.0.0",
+    "cypress": "^10.11.0",
     "eslint": "^8.21.0",
     "jest": "^28.1.3",
     "mocha": "^10.0.0",
@@ -59,8 +61,5 @@
     "unit",
     "mocha",
     "jest"
-  ],
-  "dependencies": {
-    "save-dev": "^0.0.1-security"
-  }
+  ]
 }
