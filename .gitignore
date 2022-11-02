@@ -5,5 +5,5 @@ coverage/
 screenshots/
 .vscode/
 */allure*
-*/assets/
+**/*/assets
 

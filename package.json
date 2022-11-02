@@ -11,7 +11,8 @@
     "hw23-playwright": "playwright test --config=./hw_23/configs/playwright.config.ts",
     "hw23-playwright-report": "playwright show-report hw_23/assets/reports",
     "hw23-playwright-allure-report": "allure generate hw_23/assets/allure-results --clean -o hw_23/assets/allure-report && allure open hw_23/assets/allure-report",
-    "hw24-cy:open": "cypress open"
+    "hw24-cy:open": "cypress open --config-file=./hw_24/cypress.config.ts",
+    "hw24-cy:run": "cypress run --browser chrome --headed --config-file=./hw_24/cypress.config.ts"
   },
   "name": "myrepo",
   "description": "There are homeworks",
