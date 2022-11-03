@@ -29,7 +29,15 @@ describe('W3schools site tests - Home page', () => {
   });
 
   it(`When User clicks link ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}, correct page is displayed with the title ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}`, () => {
-    homePage.clickOnLearnJavaScriptLink();
+    cy.intercept(
+      'GET',
+      'https://c.amazon-adsystem.com/bao-csm/aps-comm/aps_csm.js'
+    ).as('aps_csm.js');
+
+    homePage.clickLearnJavaScriptLink();
+    cy.wait('@aps_csm.js').then((data) => {
+      expect(data.response?.statusCode).to.equal(200);
+    });
     homePage.waitForTitleToIncludeText('JavaScript Tutorial');
   });
 });

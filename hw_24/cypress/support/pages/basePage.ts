@@ -22,6 +22,6 @@ export class BasePage {
   }
 
   public waitUrlToContain(url: string) {
-    cy.url().should('contain', url);
+    cy.url().should('include', url);
   }
 }
