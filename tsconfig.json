@@ -40,7 +40,8 @@
       "webdriverio/async",
       "@wdio/cucumber-framework",
       "expect-webdriverio",
-      "cypress"
+      "cypress",
+      "@shelex/cypress-allure-plugin"
     ],
     // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */

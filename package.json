@@ -12,7 +12,8 @@
     "hw23-playwright-report": "playwright show-report hw_23/assets/reports",
     "hw23-playwright-allure-report": "allure generate hw_23/assets/allure-results --clean -o hw_23/assets/allure-report && allure open hw_23/assets/allure-report",
     "hw24-cy:open": "cypress open --config-file=./hw_24/cypress.config.ts",
-    "hw24-cy:run": "cypress run --browser chrome --headed --config-file=./hw_24/cypress.config.ts"
+    "hw24-cy:run": "cypress run --browser chrome --headed --config-file=./hw_24/cypress.config.ts",
+    "hw24-cy:allure-report": "allure generate hw_24/cypress/assets/allure-results --clean -o hw_24/cypress/assets/allure-report && allure open hw_24/cypress/assets/allure-report"
   },
   "name": "myrepo",
   "description": "There are homeworks",
@@ -30,6 +31,7 @@
   "homepage": "https://github.com/RDary/MyRepo#readme",
   "devDependencies": {
     "@playwright/test": "^1.27.1",
+    "@shelex/cypress-allure-plugin": "^2.33.2",
     "@types/chai": "^4.3.3",
     "@types/jest": "^28.1.6",
     "@types/mocha": "^9.1.1",
