@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 import './commands';
 import '@shelex/cypress-allure-plugin';
-import { Runnable } from 'mocha';
 
 declare global {
   namespace Cypress {
