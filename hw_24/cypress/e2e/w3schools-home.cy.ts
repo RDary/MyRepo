@@ -9,6 +9,7 @@ const homePage = PageFactory.getPage(PAGES.HOME);
 
 describe('W3schools site tests - Home page', () => {
   before(() => {
+    cy.task('log', `Navigating the ${PAGES.HOME} page...`);
     homePage.visitPage();
   });
 
@@ -17,7 +18,7 @@ describe('W3schools site tests - Home page', () => {
   });
 
   it('The home page contains Google search button', () => {
-    homePage.clickGoogleSearchInput();
+    homePage.clickGoogleSearchButton();
     homePage.waitForGoogleSearchInput();
   });
 
@@ -25,7 +26,7 @@ describe('W3schools site tests - Home page', () => {
     homePage.navigationBar.clickNavigationItemByInnerText(
       NAVIGATION_ITEMS.TUTORIALS
     );
-    homePage.navigationBar.waitForHeaderElement('Tutorial');
+    homePage.navigationBar.waitForHeaderText('Tutorials');
   });
 
   it(`When User clicks link ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}, correct page is displayed with the title ${JAVASCRIPT_ITEMS.LEARNJAVASCRIPT}`, () => {

@@ -13,12 +13,12 @@ export class BasePage {
     cy.visit(this.url);
   }
 
-  public getpageTitle() {
+  public getPageTitle() {
     return cy.title();
   }
 
   public waitForTitleToIncludeText(titleText: string) {
-    this.getpageTitle().should('include', titleText);
+    this.getPageTitle().should('include', titleText);
   }
 
   public waitUrlToContain(url: string) {

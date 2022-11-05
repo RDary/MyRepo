@@ -8,6 +8,7 @@ const javaScriptPage = PageFactory.getPage(PAGES.JAVASCRIPT) as JavaScriptPage;
 
 describe('W3schools site tests - JavaScript page', () => {
   it('When User clicks on the logo, the Home page should be opened', () => {
+    cy.task('log', `Opening the ${PAGES.JAVASCRIPT} page...`);
     javaScriptPage.visitPage();
     javaScriptPage.clickLogoElement();
     homePage.waitUrlToContain(baseUrl);

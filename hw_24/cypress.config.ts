@@ -5,6 +5,7 @@ import {
   defaultWaitingTime,
 } from './cypress/support/constants/constants';
 import allureWriter from '@shelex/cypress-allure-plugin/writer';
+import { logger } from './cypress/support/logger';
 
 export default defineConfig({
   e2e: {
@@ -17,12 +18,19 @@ export default defineConfig({
     screenshotsFolder: `${assetsFolder}/screenshots`,
     fixturesFolder: 'hw_24/cypress/fixtures',
     setupNodeEvents(on, config) {
+      on('task', {
+        log(message) {
+          logger.info(message);
+
+          return null;
+        },
+      });
       allureWriter(on, config);
       return config;
     },
     env: {
       allure: 'true',
-      allureResultsPath: `hw_24/cypress/assets/allure-results`,
+      allureResultsPath: `${assetsFolder}/allure-results`,
     },
   },
 });
