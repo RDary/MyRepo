@@ -28,6 +28,8 @@
     "module": "commonjs" /* Specify what module code is generated. */,
     // "rootDir": "./", /* Specify the root folder within your source files. */
     "moduleResolution": "node",
+    "lib": ["dom", "es2016"],
+    "baseUrl": "./",
     // "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
     // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
     // "paths": {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
@@ -37,7 +39,9 @@
       "node",
       "webdriverio/async",
       "@wdio/cucumber-framework",
-      "expect-webdriverio"
+      "expect-webdriverio",
+      "cypress",
+      "@shelex/cypress-allure-plugin"
     ],
     // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
